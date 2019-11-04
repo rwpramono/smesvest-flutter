@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../UI/style.dart';
+import 'package:smesvest/UI/CustomTextStyle.dart';
 
 class ProductCard extends StatelessWidget {
   final String imgUrl;

@@ -1,7 +1,6 @@
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'CustomTextStyle.dart';
 import 'package:flutter/material.dart';
-import 'customIcons.dart';
-import 'style.dart';
+import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 List<BubbleBottomBarItem> homeBottomNavigations = <BubbleBottomBarItem>[
   BubbleBottomBarItem(
@@ -16,19 +15,12 @@ List<BubbleBottomBarItem> homeBottomNavigations = <BubbleBottomBarItem>[
   BubbleBottomBarItem(
       backgroundColor: Colors.black,
       icon: Icon(
-        CustomIcons.products,
-        color: Colors.black,
-      ),
-      activeIcon: Icon(CustomIcons.products, color: Colors.white),
-      title: Text("Shop", style: bottomBarItemStyle)),
-  BubbleBottomBarItem(
-      backgroundColor: Colors.black,
-      icon: Icon(
         Icons.favorite_border,
         color: Colors.black,
       ),
       activeIcon: Icon(Icons.favorite_border, color: Colors.white),
-      title: Text("Favorite", style: bottomBarItemStyle)),
+      title: Text("Portofolio", style: bottomBarItemStyle)
+  ),
   BubbleBottomBarItem(
       backgroundColor: Colors.black,
       icon: Icon(
@@ -36,5 +28,6 @@ List<BubbleBottomBarItem> homeBottomNavigations = <BubbleBottomBarItem>[
         color: Colors.black,
       ),
       activeIcon: Icon(Icons.person, color: Colors.white),
-      title: Text("Profile", style: bottomBarItemStyle))
+      title: Text("Profile", style: bottomBarItemStyle)
+  )
 ];

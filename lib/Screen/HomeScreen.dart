@@ -1,33 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:smesvest/UI/style.dart';
-import 'package:smesvest/model/model.dart';
-import 'package:smesvest/UI/customIcons.dart';
+import 'package:smesvest/UI/CustomIcon.dart';
+import 'package:smesvest/Model/HeadPhone.dart';
+import 'package:smesvest/UI/CustomTextStyle.dart';
 import 'package:smesvest/widgets/ProductCard.dart';
-import 'package:smesvest/UI/HomeBottomNavigation.dart';
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomeScreen> {
-  List<AnimationController> _faders;
-  AnimationController _hide;
-  int _currentIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-
-  }
-
-  void changePage(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+class HomeScreen extends StatelessWidget {
+  HomeScreen();
 
   Widget renderHeadder() {
     return Padding(
@@ -149,43 +128,29 @@ class _HomePageState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFf3f6fb),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            renderHeadder(),
-            SizedBox(
-              height: 22,
-            ),
-            renderSearchBox(),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 25),
-              child: Text("Headphones", style: headingStyle),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            renderHomeProduct(),
-            renderBigBanner()
-          ],
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 12),
-        child: BubbleBottomBar(
-            backgroundColor: Colors.transparent,
-            opacity: 1,
-            elevation: 0,
-            currentIndex: _currentIndex,
-            onTap: changePage,
-            items: homeBottomNavigations
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          renderHeadder(),
+          SizedBox(
+            height: 22,
+          ),
+          renderSearchBox(),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 25),
+            child: Text("Headphones", style: headingStyle),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          renderHomeProduct(),
+          renderBigBanner()
+        ],
       ),
     );
   }
