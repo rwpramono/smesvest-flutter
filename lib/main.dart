@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smesvest/Screen/HomeScreen.dart';
 import 'package:smesvest/Screen/ProfileScreen.dart';
+import 'package:smesvest/Screen/PortofolioScreen.dart';
 import 'package:smesvest/UI/HomeBottomNavigation.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
@@ -19,11 +20,25 @@ class MainContainer extends StatefulWidget {
 
 class _MainContainerState extends State<MainContainer> {
     int _currentIndex = 0;
-    final List<Widget> _screenWidgets = [
-        HomeScreen(),
-        ProfileScreen(Colors.amberAccent),
-        HomeScreen()
-    ];
+
+    PageController pageController = PageController(
+        initialPage: 0,
+        keepPage: true,
+    );
+
+    Widget buildPageView() {
+        return PageView(
+            controller: pageController,
+            onPageChanged: (index) {
+                _changePage(index);
+            },
+            children: <Widget>[
+                HomeScreen(),
+                PortofolioScreen(),
+                ProfileScreen(Colors.amberAccent)
+            ],
+        );
+    }
 
     void _changePage(int index) {
         setState(() {
@@ -31,10 +46,21 @@ class _MainContainerState extends State<MainContainer> {
         });
     }
 
+    void bottomNavTapped(int index) {
+        setState(() {
+            _currentIndex = index;
+            pageController.animateToPage(
+                index,
+                duration: Duration(milliseconds: 500),
+                curve: Curves.ease
+            );
+        });
+    }
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            body: _screenWidgets[_currentIndex],
+            body: buildPageView(),
             bottomNavigationBar: Padding(
                 padding: EdgeInsets.only(bottom: 12),
                 child: BubbleBottomBar(
@@ -42,7 +68,7 @@ class _MainContainerState extends State<MainContainer> {
                     opacity: 1,
                     elevation: 0,
                     currentIndex: _currentIndex,
-                    onTap: _changePage,
+                    onTap: bottomNavTapped,
                     items: homeBottomNavigations
                 ),
             ),

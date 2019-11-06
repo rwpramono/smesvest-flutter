@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:smesvest/Screen/BrowseSMBScreen.dart';
 import 'package:smesvest/UI/CustomIcon.dart';
-import 'package:smesvest/Model/HeadPhone.dart';
+import 'package:smesvest/Model/FeaturedSMB.dart';
 import 'package:smesvest/UI/CustomTextStyle.dart';
-import 'package:smesvest/widgets/ProductCard.dart';
+import 'package:smesvest/Widgets/FeaturedSMBCard.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen();
@@ -26,16 +27,15 @@ class HomeScreen extends StatelessWidget {
 
   Widget renderHomeProduct() {
     return Container(
-      height: 240,
+      height: 220,
       child: ListView.builder(
         itemCount: products.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           var product = products[index];
-          return ProductCard(
+          return FeaturedSMBCard(
               imgUrl: product.image,
-              name: product.title,
-              color: product.color);
+              name: product.title);
         },
       ),
     );
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(left: 8),
-            child: Text("Speakers", style: speakerTitleStyle),
+            child: Text("Berita UMKM", style: speakerTitleStyle),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -143,12 +143,27 @@ class HomeScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(left: 25),
-            child: Text("Headphones", style: headingStyle),
-          ),
-          SizedBox(
-            height: 16,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text("Featured", style: headingStyle),
+                FlatButton(
+                  child: Text("Lihat Semua", style: searchBarStyle,),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BrowseSMBScreen(),
+                      ),
+                    );                  },
+                )
+              ]
+            )
           ),
           renderHomeProduct(),
+          SizedBox(
+            height: 12,
+          ),
           renderBigBanner()
         ],
       ),
