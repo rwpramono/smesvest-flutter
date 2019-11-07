@@ -20,7 +20,7 @@ class SMBListData {
   static List<SMBListData> hotelList = [
     SMBListData(
       imagePath: 'assets/hotel/hotel_1.png',
-      titleTxt: 'Grand Royal Hotel',
+      titleTxt: '910 ninetenshoes',
       subTxt: 'Gresik, Jawa Timur',
       dist: 2.0,
       reviews: 80,

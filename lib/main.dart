@@ -18,7 +18,21 @@ class MainContainer extends StatefulWidget {
     _MainContainerState createState() => _MainContainerState();
 }
 
-class _MainContainerState extends State<MainContainer> {
+class _MainContainerState extends State<MainContainer> with TickerProviderStateMixin {
+    @override
+    void initState() {
+        animationController =
+            AnimationController(duration: Duration(milliseconds: 600), vsync: this);
+        super.initState();
+    }
+
+    @override
+    void dispose() {
+        animationController.dispose();
+        super.dispose();
+    }
+
+    AnimationController animationController;
     int _currentIndex = 0;
 
     PageController pageController = PageController(
@@ -35,7 +49,7 @@ class _MainContainerState extends State<MainContainer> {
             children: <Widget>[
                 HomeScreen(),
                 PortofolioScreen(),
-                ProfileScreen(Colors.amberAccent)
+                ProfileScreen(animationController: animationController)
             ],
         );
     }

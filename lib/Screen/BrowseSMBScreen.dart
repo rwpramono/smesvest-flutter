@@ -199,7 +199,7 @@ class _BrowseSMBScreenState extends State<BrowseSMBScreen> with TickerProviderSt
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Cari UMKM ...",
-                        hintStyle: searchBarStyle,
+                        hintStyle: Textx18,
                         suffixIcon: Icon(CustomIcons.search)
                     ),
                     onChanged: (String txt) {}
@@ -240,7 +240,7 @@ class _BrowseSMBScreenState extends State<BrowseSMBScreen> with TickerProviderSt
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "530 UMKM ditemukan",
+                      '${hotelList.length} UMKM ditemukan',
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
                         fontSize: 16,

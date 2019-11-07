@@ -11,11 +11,11 @@ class HomeScreen extends StatelessWidget {
 
   Widget renderHeadder() {
     return Padding(
-      padding: EdgeInsets.only(left: 16, right: 16, top: 30, bottom: 12),
+      padding: EdgeInsets.only(left: 16, right: 16, top: 40, bottom: 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text("SMESVEST", style: headingStyle),
+          Text("SMESVEST", style: AppBarText),
           IconButton(
             icon: Icon(CustomIcons.cart),
             onPressed: () {},
@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "Search...",
-                hintStyle: searchBarStyle,
+                hintStyle: Textx18,
                 suffixIcon: Icon(CustomIcons.search)),
           ),
         ),
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(left: 8),
-            child: Text("Berita UMKM", style: speakerTitleStyle),
+            child: Text("Berita UMKM", style: TitleText),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -103,12 +103,12 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Rålis", style: productTitleStyle),
+                      Text("Rålis", style: Text18w700),
                       SizedBox(
                         height: 4,
                       ),
                       Text("Haute Red, Slate Blue,\nMist Grey",
-                          style: speakerdescStyle)
+                          style: Text16w500)
                     ],
                   ),
                 ),
@@ -135,7 +135,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           renderHeadder(),
           SizedBox(
-            height: 22,
+            height: 16,
           ),
           renderSearchBox(),
           SizedBox(
@@ -146,9 +146,9 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("Featured", style: headingStyle),
+                Text("Featured", style: TitleText),
                 FlatButton(
-                  child: Text("Lihat Semua", style: searchBarStyle,),
+                  child: Text("Lihat Semua", style: Textx18),
                   onPressed: () {
                     Navigator.push(
                       context,
